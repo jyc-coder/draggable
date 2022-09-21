@@ -51,8 +51,9 @@ const Draggable = ({ children, handleRef, onMove, x = 0, y = 0 }) => {
     handle.addEventListener('mousedown', onMouseDown);
     return () => {
       handle.removeEventListener('mousedown', onMouseDown);
+      Move.cancel();
     };
-  });
+  }, [Move, handleRef, onMouseDown]);
 
   return (
     <div
